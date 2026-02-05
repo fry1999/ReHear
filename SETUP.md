@@ -96,13 +96,15 @@ flutter run
 ### Platform-Specific Setup
 
 #### Android
-Ensure `android/app/src/main/AndroidManifest.xml` has internet permission:
+✅ **Already configured!** The `android/app/src/main/AndroidManifest.xml` includes:
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET"/>
 ```
 
+This is **required** for release builds to stream audio from Dropbox.
+
 #### iOS
-Ensure `ios/Runner/Info.plist` has App Transport Security:
+If building for iOS, ensure `ios/Runner/Info.plist` has App Transport Security:
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
@@ -144,3 +146,27 @@ After testing, you can:
 2. Customize colors in `lib/main.dart`
 3. Add more playback speeds if needed
 4. Extend to support other cloud storage providers
+
+## Publishing to Google Play Store
+
+### 5. Build App Bundle for Release
+
+```bash
+flutter build appbundle --release
+```
+
+This creates an optimized `.aab` file at:
+```
+build/app/outputs/bundle/release/app-release.aab
+```
+
+### 6. Upload to Google Play Console
+
+1. Go to [Google Play Console](https://play.google.com/console)
+2. Select your app or create a new one
+3. Navigate to **Production** → **Create new release**
+4. Upload the `app-release.aab` file
+5. Fill in release notes and details
+6. Submit for review
+
+**Note:** You need a Google Play Developer account ($25 one-time fee) to publish apps.
