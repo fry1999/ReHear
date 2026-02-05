@@ -1,0 +1,28 @@
+name: rehear
+description: A minimal language-learning audio player
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Audio playback
+  just_audio: ^0.9.36
+  
+  # HTTP requests for fetching audio
+  http: ^1.1.0
+  
+  # Icons
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
